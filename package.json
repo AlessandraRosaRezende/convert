@@ -1,0 +1,12 @@
+{
+  "name": "md-to-html",
+  "version": "1.0.0",
+  "description": "Converter arquivos Markdown para HTML",
+  "main": "convert-md-to-html.js",
+  "bin": {
+    "convert": "convert-md-to-html.js"
+  },
+  "dependencies": {
+    "marked": "^5.0.0"
+  }
+}
