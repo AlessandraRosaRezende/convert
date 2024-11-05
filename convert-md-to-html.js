@@ -14,7 +14,9 @@ marked.setOptions({
 function convertMdToHtml(filePath) {
   try {
     const markdown = fs.readFileSync(filePath, 'utf-8'); // Lê o arquivo .md
-    const html = marked(markdown); // Converte o Markdown para HTML
+    let html = marked(markdown); // Converte o Markdown para HTML
+    // Substitui { por &#123; e } por &#125; no HTML
+    html = html.replace(/{/g, '&#123;').replace(/}/g, '&#125;');
     const outputFilePath = filePath.replace(/\.md$/, '.html'); // Substitui a extensão .md por .html
     fs.writeFileSync(outputFilePath, html); // Escreve o HTML no arquivo de saída
     console.log(`Converted: ${filePath} -> ${outputFilePath}`);
